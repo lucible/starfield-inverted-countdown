@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TotK Inverted Time Remaining</title>
+  <link rel="icon" type="image/png" href="icon_small.png">
+  <style>
+
+    body {
+      background-image: url('background-2a.jpg');
+      background-size: cover;
+      background-position: center center;
+      height: 100vh;
+    }
+
+    .header {
+      position: fixed;
+      top: 60px;
+      left: 40px;
+      font-size: 96px;
+      color: #52d19c;
+    }
+
+    .sub-header {
+      position: fixed;
+      top: 185px;
+      left: 40px;
+      font-size: 58px;
+      color: #41b081;
+    }
+
+    .countdown {
+      position: fixed;
+      top: 420px;
+      left: 40px;
+      font-size: 52px;
+      color: #41b081;
+    }
+
+    .inverted {
+      position: fixed;
+      top: 540px;
+      left: 40px;
+      font-size: 52px;
+      color: #41b081;
+    }
+
+    .details {
+      position: fixed;
+      top: 620px;
+      left: 40px;
+      font-size: 38px;
+      color: #41b081;
+    }
+
+  </style>
+</head>
+<body>
+
+
+  <div class="header">
+    Inverted Countdown
+  </div>
+
+  <div class="sub-header">
+    Until the Release of <br> 
+    Tears of the Kingdom
+  </div> 
+
+  <div class="countdown">
+    Countdown: <span id="timeLeft"></span>
+  </div> 
+
+  <div class="inverted">
+    Inverted Countdown: <span id="invertedPercent"></span>
+  </div> 
+
+  <div class="details">
+    Out of the days left right now, <br>
+    what percent of that will be covered <br>
+    with one more day of waiting.
+  </div> 
+
+  <script src="script.js"></script> 
+</body>
+</html>
+
