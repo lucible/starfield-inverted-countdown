@@ -1,5 +1,3 @@
-
-
 // Function to update the timer value
 function updateTimer() {
     // Get the current date and time
@@ -24,7 +22,8 @@ function updateTimer() {
 
     // Display the time update value on the webpage
     document.getElementById("timeLeft").innerHTML = timeLeftValue + " days left";
-    document.getElementById("invertedPercent").innerHTML = invertedPercentValue + "%";
+    document.getElementById("invertedPercent").innerHTML = invertedPercentValue;
+    document.getElementById("invertedPercentLastTwo").innerHTML = invertedPercentLastTwo + "%";
 }
 
 // Call the updateTimer() function initially to set the initial value
