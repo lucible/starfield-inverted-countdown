@@ -17,7 +17,7 @@ function updateTimer() {
 
     // Calculate the time update value (100% divided by time difference in seconds)
     var timeLeftValue = ((timeDifference) / (1000 * 60 * 60 * 24)).toFixed(2);
-    var invertedPercentValue = (100 * (1000 * 60 * 60 * 24) / (timeDifference)).toFixed(2);
+    var invertedPercentValue = (100 * (1000 * 60 * 60 * 24) / (timeDifference)).toFixed(4);
 
     // Display the time update value on the webpage
     document.getElementById("timeLeft").innerHTML = timeLeftValue + " days left";
