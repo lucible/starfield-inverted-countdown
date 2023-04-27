@@ -17,25 +17,46 @@ function updateTimer() {
     // Calculate the time update value (100% divided by time difference in seconds)
     
     var invertedPercentValue = (100 / timeDifference).toFixed(4);
-    var invertedPercentLastTwo = invertedPercentValue.slice(-2);
-    invertedPercentValue = invertedPercentValue.slice(0, -2);
+    var invertedPercentLastTwo = "";
+
+    if (timeDifference > 0){
+        invertedPercentLastTwo = invertedPercentValue.slice(-2);
+        invertedPercentValue = invertedPercentValue.slice(0, -2);
+    }
 
     // Display the time update value on the webpage
 
     var timeRemainingString;
+    var invertedTimeString = "Inverted Time: " + invertedPercentValue;
+    var descString = "Out of the days left right now, <br>what percent of that will be covered <br>with one more day of waiting.";
 
     if (timeDifference > 3) {
-        var timeLeftValue = timeDifference.toFixed(2);
-        timeRemainingString = "Countdown: " + timeLeftValue + " days left";
+        var days = timeDifference.toFixed(2);
+        timeRemainingString = "Countdown: " + days + " days left";
+    }
+    else if (timeDifference > 0.5) {
+        var hours = (timeDifference * 24).toFixed(2);
+        timeRemainingString = hours + " Hours Remain";
     }
     else {
-        var timeLeftValue = (timeDifference * 24).toFixed(2);
-        timeRemainingString = timeLeftValue + " Hours Remain";
+        var hours = Math.floor(timeDifference * 24);
+        var minutes = Math.floor((timeDifference * 24 - hours) * 60);
+        var seconds = Math.floor(((timeDifference * 24 - hours) * 60 - minutes) * 60);
+
+        timeRemainingString = "Time Remaining: " + hours.toString().padStart(2, '0') + " : ";
+        timeRemainingString += minutes.toString().padStart(2, '0') + " : ";
+        timeRemainingString += seconds.toString().padStart(2, '0');
+
+        descString = "Save and return to the Dawn of<br>the First Day?<br>&nbsp;&nbsp;&nbsp;Yes<br>&nbsp;&nbsp;&nbsp;No";
     }
 
+    if (timeDifference == 0)
+        descString = ""
+
     document.getElementById("timeLeft").innerHTML = timeRemainingString;
-    document.getElementById("invertedPercent").innerHTML = invertedPercentValue;
+    document.getElementById("invertedPercent").innerHTML = invertedTimeString;
     document.getElementById("invertedPercentLastTwo").innerHTML = invertedPercentLastTwo + "%";
+    document.getElementById("description").innerHTML = descString;
 }
 
 // Call the updateTimer() function initially to set the initial value
