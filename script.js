@@ -21,13 +21,13 @@ function updateTimer() {
 
     if (timeDifference > 0){
         invertedPercentLastTwo = invertedPercentValue.slice(-2);
-        invertedPercentValue = invertedPercentValue.slice(0, -2);
+        invertedPercentRemaining = invertedPercentValue.slice(0, -2);
     }
 
     // Display the time update value on the webpage
 
     var timeRemainingString;
-    var invertedTimeString = "Inverted Time: " + invertedPercentValue;
+    var invertedTimeString = "Inverted Time: " + invertedPercentRemaining;
     var descString = "Out of the days left right now, <br>what percent of that will be covered <br>with one more day of waiting.";
 
     if (timeDifference > 3) {
@@ -57,6 +57,24 @@ function updateTimer() {
     document.getElementById("invertedPercent").innerHTML = invertedTimeString;
     document.getElementById("invertedPercentLastTwo").innerHTML = invertedPercentLastTwo + "%";
     document.getElementById("description").innerHTML = descString;
+
+    // calculate graph icon pos
+
+    let iconImage = document.getElementById("iconImage");
+    let graphImage = document.getElementById("graphImage");
+
+    if (invertedPercentValue <= 50) {
+        let transX = -47.1 * timeDifference + 2426;
+        let transY = -44.3 * invertedPercentValue + 2312;
+
+        iconImage.style.transform = "scale(0.1) translateX(" + transX + "px) translateY(" + transY + "px)";
+    }
+    else
+    {
+        iconImage.style.display = "none";
+        graphImage.style.display = "none";
+    }
+
 }
 
 // Call the updateTimer() function initially to set the initial value
