@@ -58,23 +58,6 @@ function updateTimer() {
     document.getElementById("invertedPercentLastTwo").innerHTML = invertedPercentLastTwo + "%";
     document.getElementById("description").innerHTML = descString;
 
-    // calculate graph icon pos
-
-    let iconImage = document.getElementById("iconImage");
-    let graphImage = document.getElementById("graphImage");
-
-    if (invertedPercentValue <= 50) {
-        let transX = -47.1 * timeDifference + 2426;
-        let transY = -44.3 * invertedPercentValue + 2312;
-
-        iconImage.style.transform = "scale(0.1) translateX(" + transX + "px) translateY(" + transY + "px)";
-    }
-    else
-    {
-        iconImage.style.display = "none";
-        graphImage.style.display = "none";
-    }
-
 }
 
 // Call the updateTimer() function initially to set the initial value
