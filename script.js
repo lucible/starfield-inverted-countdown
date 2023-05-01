@@ -21,13 +21,13 @@ function updateTimer() {
 
     if (timeDifference > 0){
         invertedPercentLastTwo = invertedPercentValue.slice(-2);
-        invertedPercentRemaining = invertedPercentValue.slice(0, -2);
+        invertedPercentValue = invertedPercentValue.slice(0, -2);
     }
 
     // Display the time update value on the webpage
 
     var timeRemainingString;
-    var invertedTimeString = "Inverted Time: " + invertedPercentRemaining;
+    var invertedTimeString = "Inverted Time: " + invertedPercentValue;
     var descString = "Out of the days left right now, <br>what percent of that will be covered <br>with one more day of waiting.";
 
     if (timeDifference > 3) {
@@ -57,7 +57,6 @@ function updateTimer() {
     document.getElementById("invertedPercent").innerHTML = invertedTimeString;
     document.getElementById("invertedPercentLastTwo").innerHTML = invertedPercentLastTwo + "%";
     document.getElementById("description").innerHTML = descString;
-
 }
 
 // Call the updateTimer() function initially to set the initial value
