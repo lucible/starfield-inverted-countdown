@@ -7,7 +7,7 @@ function updateTimer() {
     var targetDate = new Date("May 12, 2023 12:00:00");
 
     // Calculate the time difference in milliseconds
-    var timeDifference = targetDate - now - (12 * 60 * 60 + 60 * 60 * 24 * 100) * 1000;
+    var timeDifference = targetDate - now - (12 * 60 * 60 + 60 * 60 * 24 * 0) * 1000;
     timeDifference = (timeDifference / (1000 * 60 * 60 * 24));
 
     if (timeDifference < 0) {
