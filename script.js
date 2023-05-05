@@ -7,7 +7,7 @@ function updateTimer() {
     var targetDate = new Date("May 12, 2023 12:00:00");
 
     // Calculate the time difference in milliseconds
-    var timeDifference = targetDate - now - (12 * 60 * 60 + 60 * 60 * 24 * 0) * 1000;
+    var timeDifference = targetDate - now - (12 * 60 * 60 + 60 * 60 * 24 * 100) * 1000;
     timeDifference = (timeDifference / (1000 * 60 * 60 * 24));
 
     if (timeDifference < 0) {
@@ -21,13 +21,13 @@ function updateTimer() {
 
     if (timeDifference > 0){
         invertedPercentLastTwo = invertedPercentValue.slice(-2);
-        invertedPercentValue = invertedPercentValue.slice(0, -2);
+        invertedPercentRemaining = invertedPercentValue.slice(0, -2);
     }
 
     // Display the time update value on the webpage
 
     var timeRemainingString;
-    var invertedTimeString = "Inverted Time: " + invertedPercentValue;
+    var invertedTimeString = "Inverted Time: " + invertedPercentRemaining;
     var descString = "Out of the days left right now, <br>what percent of that will be covered <br>with one more day of waiting.";
 
     if (timeDifference > 3) {
@@ -57,6 +57,18 @@ function updateTimer() {
     document.getElementById("invertedPercent").innerHTML = invertedTimeString;
     document.getElementById("invertedPercentLastTwo").innerHTML = invertedPercentLastTwo + "%";
     document.getElementById("description").innerHTML = descString;
+
+    // calculate moon size
+
+
+    let moonImage = document.getElementById("moon");
+
+    var thirdDaySize = 0.44;
+    var endSize = 17.4;
+    var factor = - 3 * thirdDaySize / (endSize - thirdDaySize);
+
+    var size = factor * endSize / (-timeDifference + factor);
+    moonImage.style.transform = "translateX(-50%) translateY(-50%) translateY(430px) scale(" + size + ") ";
 }
 
 // Call the updateTimer() function initially to set the initial value
