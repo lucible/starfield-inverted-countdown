@@ -104,7 +104,7 @@ function updateTimer() {
 
     // set moon color
 
-    var totalOpacity = 0.1;
+    var totalOpacity = 0.12;
 
     document.getElementById("moon").style.opacity = totalOpacity * (1 - value_days);
     document.getElementById("moon-red").style.opacity = totalOpacity * value_days;
