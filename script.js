@@ -1,6 +1,6 @@
 
 var skipTime = 0; //3.42
-var moon_opacity = 0.12;
+var moon_opacity = 0.22;
 
 
 // Function to update the timer value_days
