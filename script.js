@@ -1,6 +1,6 @@
 
 
-var skipTime = 3.996;
+var skipTime = 0; //3.42
 var moon_opacity = 0.12;
 
 
@@ -49,7 +49,7 @@ function updateTimer() {
         var days = timeDifference.toFixed(2);
         timeRemainingString = "Countdown: " + days + " days left";
     }
-    else if (timeDifference > 0.5) {
+    else if (timeDifference > 0.25) {
         var hours = (timeDifference * 24).toFixed(2);
         timeRemainingString = hours + " Hours Remain";
     }
@@ -97,7 +97,7 @@ function updateTimerSlow() {
 
     // set the font color
 
-    var factor = 0.16;
+    var factor = 0.26;
     var value_days = factor / (factor + timeDifference); 
     var value_hours = (0.5 - timeDifference * 24) / 0.5; 
     var value_seconds = (10 - timeDifference * 24 * 60 * 60) / 10; 
