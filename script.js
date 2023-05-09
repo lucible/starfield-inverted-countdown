@@ -1,6 +1,5 @@
 
-var skipTime = 0; //3.42
-var moon_opacity = 0.22;
+var moon_opacity = 0.19;
 
 
 // Function to update the timer value_days
@@ -12,7 +11,7 @@ function updateTimer() {
 
     var now = new Date();
     var targetDate = new Date("May 12, 2023 12:00:00");
-    var timeDifference = targetDate - now - (12 * 60 * 60 + 60 * 60 * 24 * skipTime) * 1000;
+    var timeDifference = targetDate - now - (12 * 60 * 60) * 1000;
     timeDifference = (timeDifference / (1000 * 60 * 60 * 24));
 
     // Update description
@@ -78,7 +77,7 @@ function updateTimerSlow() {
 
     var now = new Date();
     var targetDate = new Date("May 12, 2023 12:00:00");
-    var timeDifference = targetDate - now - (12 * 60 * 60 + 60 * 60 * 24 * skipTime) * 1000;
+    var timeDifference = targetDate - now - (12 * 60 * 60) * 1000;
     timeDifference = (timeDifference / (1000 * 60 * 60 * 24));
 
     if (timeDifference < 0) {
@@ -96,7 +95,7 @@ function updateTimerSlow() {
 
     // set the font color
 
-    var factor = 0.26;
+    var factor = 0.4; // 0.26
     var value_days = factor / (factor + timeDifference); 
     var value_hours = (0.5 - timeDifference * 24) / 0.5; 
     var value_seconds = (10 - timeDifference * 24 * 60 * 60) / 10; 
@@ -170,39 +169,81 @@ function getDescription(timeDifference) {
     else if ((3 - 18 / 24 ) < timeDifference && timeDifference <  (3 - 16 / 24))
         descString = "How about...Grasshopper?<br>That's the name Romani gives you.";
 
+    else if ((3 - 20 / 24 ) < timeDifference && timeDifference <  (3 - 18 / 24))
+        descString = "They...<br>They come at night...every year<br>when the carnival approaches...";
+
+    else if ((3 - 23 / 24 ) < timeDifference && timeDifference <  (3 - 20 / 24))
+        descString = "'Call us.'<br>...That's what it's saying.";
+
+    else if ((3 - 24 / 24 ) < timeDifference && timeDifference <  (3 - 23 / 24))
+        descString = "Stop! Theif!!! Give the old lady<br>her luggage back!!!";
+
     else if ((2 - 5 / 24 ) < timeDifference && timeDifference <  (2 - 0 / 24))
         descString = "I am sorry to trouble you late<br>at night. It's about him...Kafei.";
 
-    else if ((2 - 6 / 24 ) < timeDifference && timeDifference <  (2 - 5 / 24))
+    else if ((2 - 7 / 24 ) < timeDifference && timeDifference <  (2 - 5 / 24))
         descString = "It's almost time for my sister to get<br>up, so I have to get back to bed...";
 
+
+    else if ((2 - 9 / 24 ) < timeDifference && timeDifference <  (2 - 7 / 24))
+        descString = "What a soothing melody...<br>My sorrows are melting away<br>into the song.";
+
+    else if ((2 - 10 / 24 ) < timeDifference && timeDifference <  (2 - 9 / 24))
+        descString = "This is my private property.<br>Don't try using it when I'm<br>not around!";
+
+    else if ((2 - 12 / 24 ) < timeDifference && timeDifference <  (2 - 10 / 24))
+        descString = "Hello Mr. Scrub.<br>How about this rain?";
+
+    else if ((2 - 14 / 24 ) < timeDifference && timeDifference <  (2 - 12 / 24))
+        descString = "There are only two days until<br>the carnival...<br>Should I wait?<br>Kafei...";
+
+    else if ((2 - 16 / 24 ) < timeDifference && timeDifference <  (2 - 14 / 24))
+        descString = "Bah! Bother! I'm busy!";
 
     else if ((2 - 18 / 24 ) < timeDifference && timeDifference <  (2 - 16 / 24))
         descString = "Green hat...<br>Green clothes...<br>Anju wrote about you in her letter.";
 
-    else if ((2 - 20 / 24 ) < timeDifference && timeDifference <  (2 - 18 / 24))
-        descString = "We have to take this detour through<br>ugly country...";
+    else if ((2 - 19.5 / 24 ) < timeDifference && timeDifference <  (2 - 18 / 24))
+        descString = "Say, what are the townsfolk<br>saying about that moon?<br>It's bigger than before, isn't it?";
 
-    else if ((2 - 22 / 24 ) < timeDifference && timeDifference <  (2 - 20 / 24))
+    else if ((2 - 21 / 24 ) < timeDifference && timeDifference <  (2 - 19.5 / 24))
+        descString = "I wonder if it will fall...that thing?";
+
+    else if ((2 - 22 / 24 ) < timeDifference && timeDifference <  (2 - 21 / 24))
         descString = "OK, Anju, we're leaving in the<br>evening for the ranch.";
 
-    else if ((1 - 6 / 24 ) < timeDifference && timeDifference <  (2 - 22 / 24))
+    else if ((1 - 0 / 24 ) < timeDifference && timeDifference <  (2 - 22 / 24))
         descString = "That melody... It brings back<br>so many memories!";
 
-    else if ((1 - 10 / 24 ) < timeDifference && timeDifference <  (1 - 6 / 24))
+    else if ((1 - 6 / 24 ) < timeDifference && timeDifference <  (1 - 0 / 24))
+        descString = "Pa-pa-pa-paper, please!";
+
+    else if ((1 - 8 / 24 ) < timeDifference && timeDifference <  (1 - 6 / 24))
         descString = "Actually...<br>I know...<br>We're not safe here, either...";
 
-    else if ((1 - 16 / 24 ) < timeDifference && timeDifference <  (1 - 10 / 24))
+    else if ((1 - 10 / 24 ) < timeDifference && timeDifference <  (1 - 8 / 24))
+        descString = "Tingle, Tingle!<br>Kooloo-Limpah!";
+
+    else if ((1 - 12 / 24 ) < timeDifference && timeDifference <  (1 - 10 / 24))
+        descString = "Tonight, I shall cut the moon<br>into pieces!";
+
+    else if ((1 - 15 / 24 ) < timeDifference && timeDifference <  (1 - 12 / 24))
         descString = "I have decided to wait for him.<br>I've made my promise...";
 
-    else if ((1 - 19 / 24 ) < timeDifference && timeDifference <  (1 - 16 / 24))
+    else if ((1 - 17 / 24 ) < timeDifference && timeDifference <  (1 - 15 / 24))
+        descString = "'Forgive your friend.'<br>Forgive our friend?";
+
+    else if ((1 - 18 / 24 ) < timeDifference && timeDifference <  (1 - 17 / 24))
         descString = "I found him, green hat boy...<br>If he sees us, he'll run away for sure.<br>We'd better both hide here.";
 
-    else if ((1 - 21 / 24 ) < timeDifference && timeDifference <  (1 - 19 / 24))
-        descString = "He's trying to pull it out of our reach<br>and make his escape...<br>We've got to hurry!";
-
-    else if ((0 ) < timeDifference && timeDifference <  (6 / 24))
+    else if ((1 - 20 / 24) < timeDifference && timeDifference <  (1 - 18 / 24))
         descString = "Save and return to the Dawn of<br>the First Day?<br>&nbsp;&nbsp;&nbsp;Yes<br>&nbsp;&nbsp;&nbsp;No";
+
+    else if ((1 - 22 / 24 ) < timeDifference && timeDifference <  (1 - 20 / 24))
+        descString = "If it's something that can be<br>stopped, then just try to stop it!";
+
+    else if ((1 / 24 / 60 ) < timeDifference && timeDifference <  (1 - 22 / 24))
+        descString = "I...I shall consume.<br>Consume...Consume everything.";
 
     else if ((- 6 / 24 ) < timeDifference && timeDifference <  (- 4 / 24 / 3600))
         descString = "We shall greet the morning...<br>together.";
