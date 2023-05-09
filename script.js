@@ -11,7 +11,7 @@ function updateTimer() {
 
     var now = new Date();
     var targetDate = new Date("May 12, 2023 12:00:00");
-    var timeDifference = targetDate - now - (12 * 60 * 60) * 1000;
+    var timeDifference = targetDate - now - (12 * 60 * 60 ) * 1000;
     timeDifference = (timeDifference / (1000 * 60 * 60 * 24));
 
     // Update description
