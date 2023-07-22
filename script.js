@@ -61,11 +61,11 @@ function updateTimer() {
     // Display the time update value_days on the webpage
 
     var timeRemainingString;
-    var invertedTimeString = "Inverted Time: " + invertedPercentRemaining;
+    var invertedTimeString = "Inverted: " + invertedPercentRemaining;
 
     if (timeDifference > 3) {
         var days = timeDifference.toFixed(2);
-        timeRemainingString = "Countdown: " + days + " days left";
+        timeRemainingString = "Release: " + days + " days left";
     }
     else if (timeDifference > 0.25) {
         var hours = (timeDifference * 24).toFixed(2);
@@ -76,17 +76,17 @@ function updateTimer() {
         var minutes = Math.floor((timeDifference * 24 - hours) * 60);
         var seconds = Math.floor(((timeDifference * 24 - hours) * 60 - minutes) * 60);
 
-        timeRemainingString = "Time Remaining: " + hours.toString().padStart(2, '0') + " : ";
-        timeRemainingString += minutes.toString().padStart(2, '0') + " : ";
+        timeRemainingString = "Time Remaining: " + hours.toString().padStart(2, '0') + ":";
+        timeRemainingString += minutes.toString().padStart(2, '0') + ":";
         timeRemainingString += seconds.toString().padStart(2, '0');
     }
 
     var preorderRemainingString;
-    var preorderTimeString = "Inverted Time: " + preorderPercentRemaining;
+    var preorderTimeString = "Inverted: " + preorderPercentRemaining;
 
     if (preorderDifference > 3) {
         var pdays = preorderDifference.toFixed(2)
-        preorderRemainingString = "Countdown: " + pdays + " days left"
+        preorderRemainingString = "Early Release: " + pdays + " days left"
     } else if (preorderDifference > 0.25) {
         var phours = (preorderDifference * 24).toFixed(2)
         preorderRemainingString = phours + " Hours Remain"
@@ -95,8 +95,8 @@ function updateTimer() {
         var pminutes = Math.floor((preorderDifference * 24 - phours) * 60);
         var pseconds = Math.floor(((preorderDifference * 24 - phours) * 60 - pminutes) * 60);
 
-        preorderRemainingString = "Time Remaining: " + phours.toString().padStart(2, '0') + " : ";
-        preorderRemainingString += pminutes.toString().padStart(2, '0') + " : ";
+        preorderRemainingString = "Early Release " + phours.toString().padStart(2, '0') + ":";
+        preorderRemainingString += pminutes.toString().padStart(2, '0') + ":";
         preorderRemainingString += pseconds.toString().padStart(2, '0');
     }
 
@@ -130,6 +130,24 @@ function updateTimerSlow() {
         timeDifference = 0;
     }
 
+    if (preorderDifference < 0) {
+        preorderDifference = 0
+    }
+
+    // Update the background image according to the current date
+    var body = document.body;
+
+    if (timeDifference == 0) {
+        // Set the background image if target date has been reached or passed
+        body.style.backgroundImage = "url('starfield_bg-3.jpg')";
+    } else if (preorderDifference == 0 && timeDifference > 0) {
+        // Set the background image if preorder date has been reached or passed but target date has not
+        body.style.backgroundImage = "url('starfield_bg-2.jpg')";
+    } else {
+        // Default background image before preorder date
+        body.style.backgroundImage = "url('starfield_bg-1.jpg')";
+    }
+
     // set the font color
 
     var factor = 0.4; // 0.26
@@ -148,19 +166,13 @@ function updateTimerSlow() {
         divs[i].style.color = interpolatedColor;
     }
 
-    // Update the background image according to the current date
-    var body = document.body;
-
-    if (now >= targetDate) {
-        // Set the background image if target date has been reached or passed
-        body.style.backgroundImage = "url('starfield_bg-3.jpg')";
-    } else if (now >= preorderDate && now < targetDate) {
-        // Set the background image if preorder date has been reached or passed but target date has not
-        body.style.backgroundImage = "url('starfield_bg-2.jpg')";
-    } else {
-        // Default background image before preorder date
-        body.style.backgroundImage = "url('starfield_bg-1.jpg')";
+    var bgColor1 = "#2C4C7C";
+    var bgColor2 = "#000000";
+    var interpolatedBG = interpolateHexColor(bgColor1, bgColor2, value_days);
+    if (value_seconds > 0) {
+        interpolatedBG = interpolateHexColor(bgColor1, bgColor2, value_seconds)
     }
+    document.getElementById("container").style.backgroundColor = interpolatedBG
 }
 
 
@@ -188,7 +200,7 @@ function interpolateHexColor(color1, color2, value_days) {
 function getDescription(timeDifference) {
     var descString = "";
 
-    descString = "Out of the days left right now, <br>what percent of that will be covered <br>with one more day of waiting.";
+    descString = "Out of the days left right now, what percent of that will be covered with one more day of waiting.";
 
     return descString;
 }
