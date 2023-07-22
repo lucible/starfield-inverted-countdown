@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  
-  
   <title>Starfield - Inverted Time Remaining</title>
   <link rel="icon" type="image/png" href="icon_med.png">
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter&family=Tektur:wght@400;600;700&display=swap');
 
     body {
       background-image: url('starfield_bg-1.jpg');
@@ -13,55 +12,55 @@
       position: fixed;
       height: 100vh;
       background-repeat: repeat;
+      display: flex;
+      width: 25%;
+      flex-direction: column;
     }
 
-    .header {
-      position: fixed;
-      top: 60px;
-      left: 40px;
-      font-size: 96px;
-      white-space: nowrap;
+    h1 {
+      margin-top: 0;
+      margin-bottom: 0;
+      font-weight: 700;
+      font-size: 3em;
+      line-height: 1;
+      font-family: 'Tektur', 'sans-serif';
     }
 
-    .sub-header {
-      position: fixed;
-      top: 185px;
-      left: 40px;
-      font-size: 58px;
-      white-space: nowrap;
+    h2 {
+      margin-top: 0;
+      font-weight: 600;
+      font-size: 2em;
+      line-height: 1.1;
+      font-family: 'Tektur', 'sans-serif';
+    }
+
+    p {
+      margin: 0;
+      font-size: 1.5em;
+      font-weight: 600;
+    }
+
+    #container {
+      font-family: 'Inter', 'sans-serif';
+      font-weight: 400;
+      margin: 0;
+      margin-left: 2.5em;
+      margin-top: 2em;
+      background-color: rgba(44, 76, 124, 1);
+      padding: 1em;
     }
 
     .countdown {
-      position: fixed;
-      top: 406px;
-      left: 40px;
-      font-size: 52px;
-      white-space: nowrap;
-    }
-
-    .inverted {
-      position: fixed;
-      top: 540px;
-      left: 40px;
-      font-size: 52px;
-      white-space: nowrap;
-    }
-
-    .invertedDark {
-      font-size: 52px;
+      margin-top: 1em;
     }
 
     .details {
-      position: fixed;
-      top: 620px;
-      left: 40px;
-      font-size: 38px;
-      white-space: nowrap;
+      margin-top: 1em;
     }
 
     .font-color {
       color: #ffffff;
-      text-shadow: -1px -1px 0 #333333, 1px -1px 0 #333333, -1px 1px 0 #333333, 1px 1px 0 #333333;
+      text-shadow: 0 0 10px rgba(0, 0, 0, .5);
     }
 
     .font-trans {
@@ -79,43 +78,42 @@
       z-index: -2;
       opacity: 0%;
     }
-
   </style>
 </head>
 <body>
 
-  <div class="font-color">
-    Inverted Countdown
+  <div id="container">
+    <h1 class="font-color">
+      Inverted Countdown
+    </h1>
+  
+    <h2 class="font-color">
+      Until the Release of Starfield
+    </h2> 
+  
+    <p class="font-color">
+      <span id="preorderTimeLeft"></span>
+    </p>
+  
+    <p class="">
+      <span id="preorderInvertedPercent" class="font-color"></span><span id="preorderInvertedPercentLastTwo" class="font-color font-trans"></span>
+    </p>
+  
+    <p class="countdown font-color">
+      <span id="timeLeft"></span>
+    </p>
+  
+    <p class="">
+      <span id="invertedPercent" class="font-color"></span><span id="invertedPercentLastTwo" class="font-color font-trans"></span>
+    </p>
+  
+    <p class="details font-color">
+      <span id="description"></span>
+    </p>
   </div>
-
-  <div class="font-color">
-    Until the Release of <br> 
-    Starfield
-  </div> 
-
-  <div class="font-color">
-    <span id="timeLeft"></span>
-  </div>
-
-  <div class="">
-    <span id="invertedPercent" class="font-color"></span><span id="invertedPercentLastTwo" class="font-color font-trans"></span>
-  </div> 
-
-  <div class="font-color">
-    <span id="preorderTimeLeft"></span>
-  </div>
-
-  <div class="">
-    <span id="preorderInvertedPercent" class="font-color"></span><span id="preorderInvertedPercentLastTwo" class="font-color font-trans"></span>
-  </div>
-
-  <div class="font-color">
-    <span id="description"></span>
-  </div> 
 
   <div class="image-done" id="image-done"></div>
   <div style="height: 10000px; width: 10000px;"></div>
-
 
   <script src="script.js"></script> 
 </body>
