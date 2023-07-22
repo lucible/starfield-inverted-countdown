@@ -3,14 +3,13 @@
 <head>
   
   
-  <title>TotK Inverted Time Remaining</title>
+  <title>Starfield - Inverted Time Remaining</title>
   <link rel="icon" type="image/png" href="icon_med.png">
   <style>
 
     body {
-      background-image: url('background-3a.jpg');
+      background-image: url('starfield_bg-1.jpg');
       background-size: cover;
-      background-position: center center;
       position: fixed;
       height: 100vh;
       background-repeat: repeat;
@@ -61,7 +60,7 @@
     }
 
     .font-color {
-      color: #41b081;
+      color: #ffffff;
       text-shadow: -1px -1px 0 #333333, 1px -1px 0 #333333, -1px 1px 0 #333333, 1px 1px 0 #333333;
     }
 
@@ -69,20 +68,9 @@
       opacity: 0.58;
     }
 
-    .image-moon {
-      position: fixed;
-      z-index: -1;
-      opacity: 0;
-    }
-
-    .image-moon-red {
-      opacity: 0;
-    }
-
     .image-done {
-      background-image: url('totk-done-back.jpg');
+      background-image: url('starfield_bg-3.jpg');
       background-size: cover;
-      background-position: center center;
       height: 100%;
       width: 100%;
       position: fixed;
@@ -96,32 +84,37 @@
 </head>
 <body>
 
-  <div class="header font-color">
+  <div class="font-color">
     Inverted Countdown
   </div>
 
-  <div class="sub-header font-color">
+  <div class="font-color">
     Until the Release of <br> 
-    Tears of the Kingdom
+    Starfield
   </div> 
 
-  <div class="countdown font-color">
+  <div class="font-color">
     <span id="timeLeft"></span>
+  </div>
+
+  <div class="">
+    <span id="invertedPercent" class="font-color"></span><span id="invertedPercentLastTwo" class="font-color font-trans"></span>
   </div> 
 
-  <div class="inverted">
-    <span id="invertedPercent" class="font-color"></span><span id="invertedPercentLastTwo" class="invertedDark font-color font-trans"></span>
-  </div> 
+  <div class="font-color">
+    <span id="preorderTimeLeft"></span>
+  </div>
 
-  <div class="details font-color">
+  <div class="">
+    <span id="preorderInvertedPercent" class="font-color"></span><span id="preorderInvertedPercentLastTwo" class="font-color font-trans"></span>
+  </div>
+
+  <div class="font-color">
     <span id="description"></span>
   </div> 
 
-
-  <img src="moon-large-2.png" class="image-moon" id="moon">
-  <img src="moon-large-2a.png" class="image-moon image-moon-red" id="moon-red">
   <div class="image-done" id="image-done"></div>
-  	<div style="height: 10000px; width: 10000px;"></div>
+  <div style="height: 10000px; width: 10000px;"></div>
 
 
   <script src="script.js"></script> 
