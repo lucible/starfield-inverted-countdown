@@ -65,7 +65,7 @@ function updateTimer() {
 
     if (timeDifference > 3) {
         var days = timeDifference.toFixed(2);
-        timeRemainingString = "Release: " + days + " days left";
+        timeRemainingString = "Release: " + days + " days";
     }
     else if (timeDifference > 0.25) {
         var hours = (timeDifference * 24).toFixed(2);
@@ -86,16 +86,16 @@ function updateTimer() {
 
     if (preorderDifference > 3) {
         var pdays = preorderDifference.toFixed(2)
-        preorderRemainingString = "Early Release: " + pdays + " days left"
+        preorderRemainingString = "Early Access: " + pdays + " days"
     } else if (preorderDifference > 0.25) {
         var phours = (preorderDifference * 24).toFixed(2)
-        preorderRemainingString = phours + " Hours Remain"
+        preorderRemainingString = "Early Access: " + phours + " Hours"
     } else {
         var phours = Math.floor(preorderDifference * 24);
         var pminutes = Math.floor((preorderDifference * 24 - phours) * 60);
         var pseconds = Math.floor(((preorderDifference * 24 - phours) * 60 - pminutes) * 60);
 
-        preorderRemainingString = "Early Release " + phours.toString().padStart(2, '0') + ":";
+        preorderRemainingString = "Early Access: " + phours.toString().padStart(2, '0') + ":";
         preorderRemainingString += pminutes.toString().padStart(2, '0') + ":";
         preorderRemainingString += pseconds.toString().padStart(2, '0');
     }
